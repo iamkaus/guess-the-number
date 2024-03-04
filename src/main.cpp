@@ -4,7 +4,7 @@
 int main(void)
 {
     //instantiating class guess the number
-    GuessTheNumber guess;
+    GuessTheNumber guess = GuessTheNumber();
 
     //call to user input method from guess the number class
     guess.input_range();
