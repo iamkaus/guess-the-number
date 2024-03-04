@@ -1,9 +1,8 @@
 //necessary header files
 #include "GuessTheNumber.hpp"
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
 #include <stdexcept>
+#include <random>
 
 void GuessTheNumber::input_range()
 {
@@ -38,8 +37,9 @@ void GuessTheNumber::input_range()
 // function to generate secret number
 void GuessTheNumber::gen_secret_number()
 {
-    std::srand(std::time(nullptr));
-    secret_number = std::rand() % (upper_range - lower_range + 1) + lower_range;
+    std::random_device rd;
+    std::uniform_int_distribution<int> e(lower_range, upper_range);
+    secret_number = e(rd);
 }
 
 // game logic function
